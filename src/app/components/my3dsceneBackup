@@ -1,0 +1,99 @@
+"use client";
+
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, Stage, OrbitControls, Float } from "@react-three/drei";
+import { useRouter } from "next/navigation";
+
+function Model() {
+  const { scene } = useGLTF("/models/portfolio-model_002v5.glb");
+  const router = useRouter();
+
+  return (
+    <primitive 
+      object={scene}
+      rotation={[0, Math.PI, 0]}
+      onClick={() => router.push("/projects")}
+      onPointerOver={() => (document.body.style.cursor = "pointer")}
+      onPointerOut={() => (document.body.style.cursor = "auto")}
+    />
+  );
+}
+
+function SecondaryObject() {
+  const router = useRouter();
+
+  return (
+    // Float adds that professional "idle" animation we discussed
+    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
+      <mesh 
+        position={[2, 0, 0]} // Positioned to the right of your main model
+        onClick={() => router.push("/case-studies")}
+        onPointerOver={() => (document.body.style.cursor = "pointer")}
+        onPointerOut={() => (document.body.style.cursor = "auto")}
+      >
+        <boxGeometry args={[0.8, 0.8, 0.8]} />
+        <meshStandardMaterial color="#4f46e5" />
+      </mesh>
+    </Float>
+  );
+}
+
+export default function My3DScene() {
+  return (
+    <Canvas dpr={[1, 2]} shadows camera={{ fov: 60, position: [0 , 0, 0] }}>
+      <ambientLight intensity={0.5} />
+
+      <Stage environment="city" intensity={0.6}>
+        <Model />
+        <SecondaryObject /> 
+      </Stage>
+      
+   <OrbitControls 
+     makeDefault 
+     enablePan={true}
+     
+     // Angle constraints (previously discussed)
+     minPolarAngle={Math.PI / 4}    // Look from 45 degrees above
+     maxPolarAngle={Math.PI / 2}    // Limit to looking straight at the side (equator)
+    
+     minAzimuthAngle={-Math.PI / 4} // -45 degrees
+     maxAzimuthAngle={Math.PI / 4}  // +45 degrees
+     
+     // Zoom constraints WIP
+     minDistance={4}                // How close they can get
+     maxDistance={8}                // How far they can zoom out
+  
+      // Optional: Disable zoom entirely if you prefer
+      enableZoom={false}
+/>
+    </Canvas>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+function SecondaryObject() {
+  const router = useRouter();
+
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
+      <mesh 
+        position={[2, 0, 0]}
+        onClick={() => router.push("/case-studies")}
+        onPointerOver={() => (document.body.style.cursor = "pointer")}
+        onPointerOut={() => (document.body.style.cursor = "auto")}
+      >
+        <boxGeometry args={[0.8, 0.8, 0.8]} />
+        <meshStandardMaterial color="#4f46e5" />
+      </mesh>
+    </Float>
+  );
+}
