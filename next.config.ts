@@ -1,5 +1,5 @@
 const nextConfig = {
-  output: 'export',
+  output: "standalone",
   // If using Next/Image:
   images: { unoptimized: true },
 };
