@@ -12,7 +12,7 @@ export default function ProjectsPage() {
             title="Designing a Granular Banking Dashboard"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore."
             tags={["UX Design", "React Native", "Fintech"]}
-            href="/projects/1"
+            href="/projects/banking-dashboard"
             imageUrl="/portfolio-pieces/portfolio3.webp" // Optional: leave blank or omit to show placeholder box
           />
 
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
             title="UX for Better Saving habits"
             description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             tags={["Data Viz", "TypeScript", "Tailwind"]}
-            href="/projects/2"
+            href="/projects/mobile-saving-app"
             imageUrl="/portfolio-pieces/portfolio2.webp"
           />
 
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
             title="Landing page for wellness application"
             description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             tags={["Data Viz", "TypeScript", "Tailwind"]}
-            href="/projects/3"
+            href="/projects/wellness-app"
             imageUrl="/portfolio-pieces/portfolio1.webp"
           />
 
